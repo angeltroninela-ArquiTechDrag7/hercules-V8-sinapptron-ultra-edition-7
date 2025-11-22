@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HÉRCULES V8.0 | SINAPPTRON PRIME</title>
+    <!-- Mantenemos Tailwind via CDN para conservar tus estilos exactos sin configuración extra -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-bg': '#020409', // Almost black blue
+              'brand-surface': '#0A0F1A', // Dark blue slate
+              'brand-line': '#1E293B', // Mid slate
+              'brand-text-dim': '#475569', // Slate
+              'brand-text': '#94A3B8', // Lighter slate
+              'brand-primary': '#00E5FF', // Neon Cyan
+              'brand-secondary': '#E2E8F0', // Off-white, silverish
+              'danger': '#FF4444',
+              'gold': '#D4AF37', // Kept for reference
+            },
+            fontFamily: {
+              mono: ['"Courier New"', 'Courier', 'monospace'],
+              sans: ['"Inter"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'electric': 'electric 2s infinite',
+              'fade-in': 'fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              electric: {
+                '0%': { boxShadow: '0 0 5px #00E5FF' },
+                '50%': { boxShadow: '0 0 20px #00E5FF, 0 0 10px #E2E8F0' },
+                '100%': { boxShadow: '0 0 5px #00E5FF' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(20px) scale(0.98)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #020409;
+        color: #94A3B8;
+        overflow-x: hidden;
+        background-image:
+          radial-gradient(ellipse 80% 80% at 50% -20%, rgba(0, 229, 255, 0.1), transparent),
+          linear-gradient(to right, rgba(30, 41, 59, 0.5) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+        background-size: 100% 100%, 3rem 3rem, 3rem 3rem;
+        background-position: center, -1px -1px, -1px -1px;
+        background-attachment: fixed;
+      }
+      /* Scrollbar oculta para limpieza visual */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+      
+      .cyber-panel {
+        position: relative;
+        border: 1px solid #1E293B; /* brand-line */
+        background-color: rgba(10, 15, 26, 0.8); /* brand-surface with transparency */
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      }
+      .cyber-panel::before, .cyber-panel::after {
+          content: '';
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          border-color: #00E5FF; /* brand-primary */
+          border-style: solid;
+          opacity: 0.8;
+      }
+      .cyber-panel::before {
+          top: -1px; left: -1px;
+          border-width: 2px 0 0 2px;
+      }
+      .cyber-panel::after {
+          bottom: -1px; right: -1px;
+          border-width: 0 2px 2px 0;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "react-to-print": "https://aistudiocdn.com/react-to-print@^3.2.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
